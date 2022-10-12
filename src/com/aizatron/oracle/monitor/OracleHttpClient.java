@@ -1,19 +1,19 @@
 package com.aizatron.oracle.monitor;
 
-import com.google.gson.Gson;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
-
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ *
+ * neelslotter@gmail.com
+ *
+ */
 public class OracleHttpClient {
 
     private String header;
@@ -92,7 +92,6 @@ public class OracleHttpClient {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded; charset=UTF-8");
 
         // Ignore certificate for now
@@ -139,6 +138,7 @@ public class OracleHttpClient {
         try {
             response = client.newCall(request).execute();
         } catch (Exception vException) {
+            vException.printStackTrace();
         }
 
         return response;
@@ -193,13 +193,12 @@ public class OracleHttpClient {
         try {
             response = client.newCall(request).execute();
         } catch (Exception vException) {
+            vException.printStackTrace();
         }
 
         if(response.code() != 200){
             System.out.println("oops " + response.code() );
             System.out.println("oops " + response.message().toString());
-        }else{
-
         }
         return response;
     }
