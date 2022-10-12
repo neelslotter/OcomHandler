@@ -21,6 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *
+ * neelslotter@gmail.com
+ *
+ */
 public class PcapHandler {
 
     private InputStream mInputStream;
@@ -28,10 +33,12 @@ public class PcapHandler {
         this.mInputStream = aInputStream;
     }
 
-    public void GetPcapData() throws IOException {
+    public List<SipMessage> GetPcapData() throws IOException {
 
         final List<RTPInfo> rtpInfo = new ArrayList<>();
+        final List<SipMessage> sipMessages = new ArrayList<>();
         final Pcap pcap = Pcap.openStream(mInputStream);
+        SipMessage sipMessage;
 
         pcap.loop(new PacketHandler() {
             @Override
@@ -47,18 +54,7 @@ public class PcapHandler {
 
                     try {
                         final SipMessage msg = SipMessage.frame(packet.getPacket(Protocol.UDP).getPayload());
-                        if (msg.isBye()) {
-                        }
-                        if (msg.isRequest()) {
-                        }
-                        if (msg.isInviteRequest()) {
-                        }
-
-                        System.out.println(destIp + ":" + sourcePort + " -> " + sourceIp + ":" + sourcePort);
-                            System.out.println(msg.getFromHeader());
-                            System.out.println(msg.getToHeader());
-                            System.out.println(msg.toString());
-
+                        sipMessages.add(SipMessage.frame(packet.getPacket(Protocol.UDP).getPayload()));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -69,7 +65,8 @@ public class PcapHandler {
                 return true;
             }
         });
-        System.out.println("---------------------------");// return false;
+
+        return sipMessages;
     }
 
     private static Optional<TransportPacket> getTransportPacket(final Packet packet) throws IOException {
