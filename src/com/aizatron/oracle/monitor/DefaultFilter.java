@@ -1,5 +1,15 @@
 package com.aizatron.oracle.monitor;
 
+
+/**
+ * The program implements Oracle's OCOM REST API filters
+ * to be used for searching
+ *
+ * @author  Neels Lötter
+ * @version 0.0.1
+ * @since   2022-10-13
+ */
+
 public class DefaultFilter {
 
     private String mAlias;
@@ -19,9 +29,6 @@ public class DefaultFilter {
         this.mStatus = mStatus;
     }
 
-
-
-
     public String getmLimit() {
         return mLimit;
     }
@@ -38,9 +45,18 @@ public class DefaultFilter {
         this.mSrcNumber = mSrcNumber;
     }
 
+    /**
+     *
+     * @param aOlderTS
+     * @param aAlias
+     * @param aDate1
+     * @param aDate2
+     * @param aLimit
+     * @param aSrcNumber
+     */
     DefaultFilter(String aOlderTS, String aAlias,
                   String aDate1, String aDate2,
-                  String aLimit, String aSrcNumber){
+                  String aLimit, String aSrcNumber) {
         this.mOlderTS = aOlderTS;
         this.mAlias = aAlias;
         this.mDate1 = aDate1;
