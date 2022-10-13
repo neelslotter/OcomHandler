@@ -15,13 +15,21 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * The program decodes the PCAP message
  *
- * neelslotter@gmail.com
  *
+ * @author  Neels Lötter
+ * @version 0.0.1
+ * @since   2022-10-13
+ *
+ * @param InputStream
+ * @return  List<SipMessage>
  */
+
 public class PcapHandler {
 
     private InputStream mInputStream;
+
     public PcapHandler(InputStream aInputStream){
         this.mInputStream = aInputStream;
     }
