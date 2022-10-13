@@ -10,10 +10,14 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * The program provids an HTTP client to access Oracle's OCOM REST API
  *
- * neelslotter@gmail.com
- *
+ * @author  Neels Lötter
+ * @version 0.0.1
+ * @since   2022-10-13
  */
+
+
 public class OracleHttpClient {
 
     private String header;
@@ -26,6 +30,14 @@ public class OracleHttpClient {
     OracleHttpClient() {
     }
 
+    /**
+     * @param aUrl
+     * @param aHeader
+     * @param aBody
+     * @param aMethod
+     * @param aToken
+     * @param aParms
+     */
     OracleHttpClient(String aUrl, String aHeader, String aBody, String aMethod, String aToken, String aParms) {
         this.header = aHeader;
         this.body = aBody;
@@ -145,6 +157,13 @@ public class OracleHttpClient {
 
     }
 
+    /**
+     *
+     * @param aRequestBody
+     * @return Response
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     public Response doPcapPost(MultipartBody aRequestBody) throws NoSuchAlgorithmException, KeyManagementException {
 
         Response response = null;
@@ -250,7 +269,6 @@ public class OracleHttpClient {
     public void setParams(String params) {
         this.params = params;
     }
-
 
     @Override
     public String toString() {
