@@ -1,4 +1,4 @@
-# OcomHandler
+# OcomHandler PCAPS decoding
 
 This project implements a Java-based client for interfacing with Oracle's OCOM REST API, handling HTTP requests and responses, and managing data from Oracle communication calls. It includes various helper classes to format, filter, and process data from Oracle's OCOM API.
 
