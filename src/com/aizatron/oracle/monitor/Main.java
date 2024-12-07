@@ -24,7 +24,7 @@ import java.util.*;
 public class Main {
 
     private static String GET_BASE_URL = "https://10.80.52.32/me/";
-    private static String KEY = "Data_Intergrity;62ce7e7257f(********a";
+    private static String KEY = "Data_Intergrity;********";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     static volatile int cnt = 0;
     private static boolean printCallObj = true;
