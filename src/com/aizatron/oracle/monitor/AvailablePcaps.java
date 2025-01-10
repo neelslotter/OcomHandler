@@ -6,8 +6,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-ngfdmhgcv,jhv,jhv' nbcmnvmhv mnb mn,
-
 @Generated("jsonschema2pojo")
 public class AvailablePcaps {
 
